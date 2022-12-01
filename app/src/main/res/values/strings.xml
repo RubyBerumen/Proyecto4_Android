@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EstudioFotografico_Android</string>
+
+    <string name="cajaUsuario">Usuario</string>
+    <string name="cajaContraseña">Contraseña</string>
+    <string name="btnAcceder">Acceder</string>
+
+</resources>
