@@ -6,12 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ActivityMenu">
 
+    <Button
+        android:id="@+id/btn_consultas"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:onClick="abrirActivities"
+        android:text="@string/btn_consultas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cambios" />
+
+    <Button
+        android:id="@+id/btn_bajas"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:onClick="abrirActivities"
+        android:text="@string/btn_bajas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_altas" />
+
     <TextView
         android:id="@+id/textView_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="76dp"
         android:hint="@string/textView_menu"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -19,43 +41,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_altas"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/btn_altas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_menu" />
-
-    <Button
-        android:id="@+id/btn_bajas"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_bajas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_altas" />
-
-    <Button
         android:id="@+id/btn_cambios"
         android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:onClick="abrirActivities"
         android:text="@string/btn_cambios"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_bajas" />
 
     <Button
-        android:id="@+id/btn_consultas"
+        android:id="@+id/btn_altas"
         android:layout_width="290dp"
         android:layout_height="50dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_consultas"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:onClick="abrirActivities"
+        android:text="@string/btn_altas"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cambios" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
