@@ -12,18 +12,26 @@
     <string name="btn_consultas">Consultar</string>
 
     <string name="txt_altas">Agregar fotógrafo</string>
-    <string name="caja_nombre_altas">Nombre</string>
-    <string name="caja_apellido_altas">Apellido</string>
-    <string name="caja_fecha_altas">Fecha nac.</string>
-    <string name="caja_telefono_altas">Nombre</string>
-    <string name="caja_email_altas">Email</string>
+    <string name="txt_bajas">Eliminar fotógrafo</string>
+    <string name="txt_cambios">Modificar fotógrafo</string>
+    <string name="txt_consultas">Consultar fotógrafo</string>
+
+    <string name="caja_id">Id</string>
+    <string name="caja_nombre">Nombre</string>
+    <string name="caja_apellido">Apellido</string>
+    <string name="caja_fecha">Fecha nac.</string>
+    <string name="caja_telefono">Teléfono</string>
+    <string name="caja_email">Email</string>
+
     <string name="btn_agregar">Agregar</string>
     <string name="btn_borrar">Borrar</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_modificar">Modificar</string>
+
 
     <string name="cajaEntrada">Ingresa para búscar</string>
     <string name="textView_titulo">ABCC Fotógrafos</string>
-
-
 
 
 </resources>

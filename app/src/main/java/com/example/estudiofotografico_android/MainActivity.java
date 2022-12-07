@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void abrirConsultas(View v){
+    public void abrirMenu(View v){
         Intent i = new Intent(this, ActivityMenu.class);
         startActivity(i);
 

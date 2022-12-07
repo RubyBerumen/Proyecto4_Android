@@ -36,7 +36,7 @@
         android:layout_marginStart="132dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="#3164f4"
-        android:onClick="abrirConsultas"
+        android:onClick="abrirMenu"
         android:text="@string/btnAcceder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_contraseña" />
