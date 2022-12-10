@@ -14,19 +14,39 @@
         android:layout_marginTop="16dp"
         android:onClick="abrirActivities"
         android:text="@string/btn_consultas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cambios" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cambios"
+        app:cornerRadius="20dp"/>
 
     <Button
-        android:id="@+id/btn_bajas"
+        android:id="@+id/btn_altas"
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
         android:onClick="abrirActivities"
-        android:text="@string/btn_bajas"
+        android:text="@string/btn_altas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_altas" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_menu"
+        app:cornerRadius="20dp"/>
+
+    <Button
+        android:id="@+id/btn_cambios"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:onClick="abrirActivities"
+        android:text="@string/btn_cambios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bajas"
+        app:cornerRadius="20dp"/>
 
     <TextView
         android:id="@+id/textView_menu"
@@ -37,29 +57,23 @@
         android:hint="@string/textView_menu"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_cambios"
+        android:id="@+id/btn_bajas"
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:onClick="abrirActivities"
-        android:text="@string/btn_cambios"
+        android:text="@string/btn_bajas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_bajas" />
-
-    <Button
-        android:id="@+id/btn_altas"
-        android:layout_width="290dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="52dp"
-        android:onClick="abrirActivities"
-        android:text="@string/btn_altas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_menu" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_altas"
+        app:cornerRadius="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

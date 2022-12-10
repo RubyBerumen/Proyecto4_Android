@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">EstudioFotografico_Android</string>
 
-    <string name="cajaUsuario">Usuario</string>
+    <string name="cajaUsuario">Correo electrónico</string>
     <string name="cajaContraseña">Contraseña</string>
     <string name="btnAcceder">Acceder</string>
+    <string name="btnRegistrarse">¿No tienes cuenta?</string>
+    <string name="btnRegistrarse2">Presiona aquí para registrarte</string>
+
+    <string name="txtRegistrarse">Registrarse</string>
+    <string name="cajaNombre">Nombre</string>
+    <string name="cajaApellido">Apellido</string>
+    <string name="cajaContraseña2">Repite contraseña</string>
+    <string name="btnCrear">Crear cuenta</string>
 
     <string name="textView_menu">Selecciona una opción</string>
     <string name="btn_altas">Agregar</string>

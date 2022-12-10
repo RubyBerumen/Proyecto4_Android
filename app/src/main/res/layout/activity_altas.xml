@@ -6,17 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ActivityAltas">
 
-    <TextView
-        android:id="@+id/txt_altas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="64dp"
-        android:hint="@string/txt_altas"
-        android:textSize="24sp"
-        android:textStyle="bold"
+    <EditText
+        android:id="@+id/caja_fecha_altas"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/caja_fecha"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/caja_apellido_altas" />
 
     <EditText
         android:id="@+id/caja_nombre_altas"
@@ -27,44 +29,10 @@
         android:ems="10"
         android:hint="@string/caja_nombre"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_altas" />
-
-    <EditText
-        android:id="@+id/caja_apellido_altas"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/caja_apellido"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caja_nombre_altas" />
-
-    <EditText
-        android:id="@+id/caja_fecha_altas"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/caja_fecha"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caja_apellido_altas" />
-
-    <EditText
-        android:id="@+id/caja_telefono_altas"
-        android:layout_width="270dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="@string/caja_telefono"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caja_fecha_altas" />
 
     <EditText
         android:id="@+id/caja_email_altas"
@@ -75,29 +43,75 @@
         android:ems="10"
         android:hint="@string/caja_email"
         android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caja_telefono_altas" />
 
-    <Button
-        android:id="@+id/btn_borrar"
+    <TextView
+        android:id="@+id/txt_altas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="24dp"
-        android:onClick="borrarCampos"
-        android:text="@string/btn_borrar"
-        app:layout_constraintStart_toEndOf="@+id/btn_agregar"
-        app:layout_constraintTop_toBottomOf="@+id/caja_email_altas" />
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:hint="@string/txt_altas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_agregar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="125dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
         android:onClick="agregarFotografo"
         android:text="@string/btn_agregar"
+        app:cornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caja_email_altas" />
+
+    <Button
+        android:id="@+id/btn_borrar"
+        android:layout_width="114dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:onClick="borrarCampos"
+        android:text="@string/btn_borrar"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caja_email_altas" />
+
+    <EditText
+        android:id="@+id/caja_apellido_altas"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/caja_apellido"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caja_nombre_altas" />
+
+    <EditText
+        android:id="@+id/caja_telefono_altas"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/caja_telefono"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caja_fecha_altas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityRegistrarse">
+
+    <TextView
+        android:id="@+id/txt_registrarse"
+        android:layout_width="131dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="48dp"
+        android:hint="@string/txtRegistrarse"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cajaUsuario"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/cajaUsuario"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_registrarse" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="180dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/btnCrear"
+        app:cornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaContraseña2" />
+
+    <EditText
+        android:id="@+id/cajaNombre"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/cajaNombre"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaUsuario" />
+
+    <EditText
+        android:id="@+id/cajaApellido"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/cajaApellido"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaNombre" />
+
+    <EditText
+        android:id="@+id/cajaContraseña2"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/cajaContraseña2"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaContraseña1" />
+
+    <EditText
+        android:id="@+id/cajaContraseña1"
+        android:layout_width="270dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/cajaContraseña"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cajaApellido" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
