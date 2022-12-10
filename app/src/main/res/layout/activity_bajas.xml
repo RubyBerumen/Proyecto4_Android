@@ -96,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
+        android:onClick="eliminarPaciente"
         android:text="@string/btn_eliminar"
         app:layout_constraintStart_toEndOf="@+id/btn_buscar"
         app:layout_constraintTop_toBottomOf="@+id/caja_email_bajas" />
@@ -106,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
         android:layout_marginTop="56dp"
+        android:onClick="borrarCampos"
         android:text="@string/btn_borrar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caja_email_bajas" />
