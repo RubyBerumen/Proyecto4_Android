@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -27,7 +28,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Entidades.Fotografo;
 
@@ -42,7 +45,8 @@ public class ActivityConsultas extends AppCompatActivity {
 
     RequestQueue requestQueue;  //cola de peticiones
     //localhost
-    private static final String URL = "http://localhost/api_rest/api_rest_MySQL/api_android.php";
+    private String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_consultas.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,27 +60,25 @@ public class ActivityConsultas extends AppCompatActivity {
         lista.add(new Fotografo(2, "Pedro", "Gomez", "15-10-2002", "123123123","bryan.valdez1177@outlook.es"));
         lista.add(new Fotografo(3, "Maria", "Lopez", "15-10-2003", "123123222","bryan.valdez77@outlook.es"));
 
-        //actualizamos el recycler
-        //adapter.notifyDataSetChanged();
-
         initUI();
+        URL = URL + cajaBusqueda.getText().toString();
         initRecycler();
 
-        cajaBusqueda.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                consultar();
-            }
-        });
+//        cajaBusqueda.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
     }
 
@@ -94,84 +96,95 @@ public class ActivityConsultas extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
-    public void consultar() {
-        String url = URL + "?cajaBusqueda=" +cajaBusqueda.getText().toString();
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    lista.clear();
-                    JSONArray fotografos = response.getJSONArray("datos");
-                    for (int i = 0; i < fotografos.length(); i++) {
-                        JSONObject jsonObject = new JSONObject(fotografos.getJSONObject(i).toString());
-                        lista.add(new Fotografo(
-                                jsonObject.getInt("id_fotografo"),
-                                jsonObject.getString("nombre"),
-                                jsonObject.getString("apellido"),
-                                jsonObject.getString("fecha_nacimiento"),
-                                jsonObject.getString("telefono"),
-                                jsonObject.getString("correo")
-                        ));
-                    }
-                    Toast.makeText(getApplicationContext(), "Se encontraron " + lista.size() + " registros", Toast.LENGTH_SHORT).show();
-                    adapter.notifyDataSetChanged();
-                } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(), "Error al consultar", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if (error instanceof NetworkError) {
-                    Toast.makeText(getApplicationContext(), "NetworkError", Toast.LENGTH_SHORT).show();
-                } else if (error instanceof ServerError) {
-                    Toast.makeText(getApplicationContext(), "ServerError", Toast.LENGTH_SHORT).show();
-                } else if (error instanceof NoConnectionError) {
-                    Toast.makeText(getApplicationContext(), "NoConnectionError", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        requestQueue.add(request);
-    }
-
     public void consultar(View view) {
-        String url = URL + "?cajaBusqueda=" +cajaBusqueda.getText().toString();
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        //String url = URL + "Bryan";
+
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    lista.clear();
+//                    JSONArray fotografos = response.getJSONArray("datos");
+//                    for (int i = 0; i < fotografos.length(); i++) {
+//                        JSONObject jsonObject = new JSONObject(fotografos.getJSONObject(i).toString());
+//                        lista.add(new Fotografo(
+//                                jsonObject.getInt("id_fotografo"),
+//                                jsonObject.getString("nombre"),
+//                                jsonObject.getString("apellido"),
+//                                jsonObject.getString("fecha_nacimiento"),
+//                                jsonObject.getString("telefono"),
+//                                jsonObject.getString("correo")
+//                        ));
+//                    }
+//                    Toast.makeText(getApplicationContext(), "Se encontraron " + lista.size() + " registros", Toast.LENGTH_SHORT).show();
+//                    adapter.notifyDataSetChanged();
+//                } catch (JSONException e) {
+//                    Toast.makeText(getApplicationContext(), "Error al consultar", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                if (error instanceof NetworkError) {
+//                    Toast.makeText(getApplicationContext(), "NetworkError", Toast.LENGTH_SHORT).show();
+//                }
+//                if (error instanceof ServerError) {
+//                    Toast.makeText(getApplicationContext(), "ServerError", Toast.LENGTH_SHORT).show();
+//                }
+//                if (error instanceof NoConnectionError) {
+//                    Toast.makeText(getApplicationContext(), "NoConnectionError", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//        requestQueue.add(request);
+
+        String url = URL + "?cajaBusqueda=Bryan";
+
+        StringRequest request=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
                 try {
                     lista.clear();
-                    JSONArray fotografos = response.getJSONArray("datos");
-                    for (int i = 0; i < fotografos.length(); i++) {
-                        JSONObject jsonObject = new JSONObject(fotografos.getJSONObject(i).toString());
-                        lista.add(new Fotografo(
-                                jsonObject.getInt("id_fotografo"),
-                                jsonObject.getString("nombre"),
-                                jsonObject.getString("apellido"),
-                                jsonObject.getString("fecha_nacimiento"),
-                                jsonObject.getString("telefono"),
-                                jsonObject.getString("correo")
-                        ));
+                    JSONObject json =new JSONObject(response);
+                    //printing the response
+                    Log.i("TAG","xddd");
+                    Log.i("TAG",json.toString());
+
+                    JSONArray array = new JSONArray(json.getString("datos"));
+                    for (int i=0;i<array.length();i++){
+                        JSONObject json_data = array.getJSONObject(i);
+
+                        int id=json_data.getInt("id_fotografo");
+                        String nombre=json_data.getString("nombre");
+                        String apellido=json_data.getString("apellido");
+                        String fechaNacimiento=json_data.getString("fecha_nacimiento");
+                        String telefono=json_data.getString("telefono");
+                        String correo=json_data.getString("email");
+
+                        Fotografo fotografo = new Fotografo(id, nombre, apellido, fechaNacimiento, telefono, correo);
+                        lista.add(fotografo);
                     }
-                    Toast.makeText(getApplicationContext(), "Se encontraron " + lista.size() + " registros", Toast.LENGTH_SHORT).show();
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(), "Error al consultar", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                if (error instanceof NetworkError) {
-                    Toast.makeText(getApplicationContext(), "NetworkError", Toast.LENGTH_SHORT).show();
-                } else if (error instanceof ServerError) {
-                    Toast.makeText(getApplicationContext(), "ServerError", Toast.LENGTH_SHORT).show();
-                } else if (error instanceof NoConnectionError) {
-                    Toast.makeText(getApplicationContext(), "NoConnectionError", Toast.LENGTH_SHORT).show();
-                }
+                Log.i("TAG",error.getMessage());
             }
         });
-        requestQueue.add(request);
+//        {
+//                @Override
+//                public HashMap<String, String> getParams() {
+//                    HashMap<String, String> params = new HashMap<String, String>();
+//                    params.put("cajaBusqueda", "Bryan");
+//                    return params;
+//            }
+//        };
+        Volley.newRequestQueue(getApplicationContext()).add(request);
+
     }
 
 }

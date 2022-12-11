@@ -38,7 +38,7 @@ public class ActivityAltas extends AppCompatActivity {
 
     RequestQueue requestQueue;  //cola de peticiones
 
-    private static final String URL = "http://localhost/api_rest/api_rest_MySQL/api_android.php";
+    private static final String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_android.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
