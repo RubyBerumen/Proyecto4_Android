@@ -11,7 +11,7 @@
         android:layout_width="154dp"
         android:layout_height="72dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:hint="@string/txt_consultas"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -25,34 +25,26 @@
         android:layout_width="201dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/caja_nombre"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView_consultas"
         app:layout_constraintEnd_toStartOf="@+id/txt_consultas"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_consultas"
-        android:layout_width="348dp"
-        android:layout_height="567dp"
+        android:layout_width="346dp"
+        android:layout_height="485dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="210dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="12dp"
-        android:onClick="consultar"
-        android:text="Buscar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caja_busqueda" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

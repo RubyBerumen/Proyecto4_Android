@@ -31,7 +31,7 @@ public class ActivityCambios extends AppCompatActivity {
 
     RequestQueue requestQueue;  //cola de peticiones
 
-    private static final String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_android.php";
+    private String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_cambios.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,8 @@ public class ActivityCambios extends AppCompatActivity {
         setContentView(R.layout.activity_cambios);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        initUI();
 
     }
 
@@ -56,11 +58,11 @@ public class ActivityCambios extends AppCompatActivity {
 
     }
 
-    public void modificarPaciente(View v){
+    public void modificarPaciente(View view){
         if(!comprobarCampos()){
-            Toast toast = Toast.makeText(getApplicationContext(),"Hay campos vacios", Toast.LENGTH_SHORT);
-            toast.show();
+            Toast.makeText(getApplicationContext(),"Hay campos vacios", Toast.LENGTH_SHORT).show();
         }else{
+            URL=URL+"?id="+et_id.getText().toString();
             StringRequest request = new StringRequest(Request.Method.PUT, URL,
                     new Response.Listener<String>()
                     {
@@ -69,9 +71,9 @@ public class ActivityCambios extends AppCompatActivity {
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 if(jsonObject.getBoolean("exito")){
-                                    Toast.makeText(getApplicationContext(), jsonObject.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), jsonObject.getString("msj"), Toast.LENGTH_SHORT).show();
                                 }else{
-                                    Toast.makeText(getApplicationContext(), jsonObject.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), jsonObject.getString("msj"), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -99,7 +101,6 @@ public class ActivityCambios extends AppCompatActivity {
                 protected Map<String, String> getParams()
                 {
                     Map<String, String> parametros = new HashMap<String, String>();
-                    parametros.put("id", et_id.getText().toString());
                     parametros.put("nombre", et_nombre.getText().toString());
                     parametros.put("apellido", et_apellido.getText().toString());
                     parametros.put("fechaNacimiento", et_fecha.getText().toString());
@@ -109,13 +110,12 @@ public class ActivityCambios extends AppCompatActivity {
                 }
 
             };
-
             requestQueue.add(request);
         }
 
     }
 
-    public void limpiarCajas(){
+    public void limpiarCajas(View view){
         et_id.setText("");
         et_nombre.setText("");
         et_apellido.setText("");

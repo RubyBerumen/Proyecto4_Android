@@ -38,13 +38,12 @@ public class ActivityAltas extends AppCompatActivity {
 
     RequestQueue requestQueue;  //cola de peticiones
 
-    private static final String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_android.php";
+    private static final String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_altas.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_altas);
-
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         initUI();
@@ -75,17 +74,15 @@ public class ActivityAltas extends AppCompatActivity {
         // caso de exito {"exito":true,"mensaje":"insercion correcta"}
 
         if( comprobarCampos()){
-            //String url = URL + "?nombre=" + et_nombre.getText().toString() + "&apellido=" + et_apellido.getText().toString() + "&fechaNacimiento=" + et_fecha.getText().toString() + "&telefono=" + et_telefono.getText().toString() + "&email=" + et_email.getText().toString();
-
             StringRequest request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
                         JSONObject jsonObject = new JSONObject(response);
                         if(jsonObject.getBoolean("exito")){
-                            Toast.makeText(ActivityAltas.this, jsonObject.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), jsonObject.getString("msj"), Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(ActivityAltas.this, jsonObject.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), jsonObject.getString("msj"), Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -95,13 +92,13 @@ public class ActivityAltas extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     if (error instanceof NoConnectionError) {
-                        Toast.makeText(ActivityAltas.this, "No hay conexión a Internet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No hay conexión a Internet", Toast.LENGTH_SHORT).show();
                     } else if (error instanceof NetworkError) {
-                        Toast.makeText(ActivityAltas.this, "Error de red", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error de red", Toast.LENGTH_SHORT).show();
                     } else if (error instanceof ServerError) {
-                        Toast.makeText(ActivityAltas.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error en el servidor", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(ActivityAltas.this, "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
                     }
                 }
             }) {
@@ -116,10 +113,9 @@ public class ActivityAltas extends AppCompatActivity {
                     return parametros;
                 }
             };
-
             requestQueue.add(request);
         } else {
-            Toast.makeText(ActivityAltas.this, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Rellene todos los campos", Toast.LENGTH_SHORT).show();
         }
 
     }

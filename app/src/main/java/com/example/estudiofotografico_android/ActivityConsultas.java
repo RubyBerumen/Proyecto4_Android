@@ -45,7 +45,7 @@ public class ActivityConsultas extends AppCompatActivity {
 
     RequestQueue requestQueue;  //cola de peticiones
     //localhost
-    private String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_consultas.php";
+    private String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_consultas.php?cajaBusqueda=";
 
 
     @Override
@@ -64,21 +64,23 @@ public class ActivityConsultas extends AppCompatActivity {
         URL = URL + cajaBusqueda.getText().toString();
         initRecycler();
 
-//        cajaBusqueda.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//
-//            }
-//        });
+        cajaBusqueda.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                consultar();
+            }
+        });
+
+        consultar();
 
     }
 
@@ -96,60 +98,16 @@ public class ActivityConsultas extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
-    public void consultar(View view) {
-        //String url = URL + "Bryan";
-
-//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                try {
-//                    lista.clear();
-//                    JSONArray fotografos = response.getJSONArray("datos");
-//                    for (int i = 0; i < fotografos.length(); i++) {
-//                        JSONObject jsonObject = new JSONObject(fotografos.getJSONObject(i).toString());
-//                        lista.add(new Fotografo(
-//                                jsonObject.getInt("id_fotografo"),
-//                                jsonObject.getString("nombre"),
-//                                jsonObject.getString("apellido"),
-//                                jsonObject.getString("fecha_nacimiento"),
-//                                jsonObject.getString("telefono"),
-//                                jsonObject.getString("correo")
-//                        ));
-//                    }
-//                    Toast.makeText(getApplicationContext(), "Se encontraron " + lista.size() + " registros", Toast.LENGTH_SHORT).show();
-//                    adapter.notifyDataSetChanged();
-//                } catch (JSONException e) {
-//                    Toast.makeText(getApplicationContext(), "Error al consultar", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                if (error instanceof NetworkError) {
-//                    Toast.makeText(getApplicationContext(), "NetworkError", Toast.LENGTH_SHORT).show();
-//                }
-//                if (error instanceof ServerError) {
-//                    Toast.makeText(getApplicationContext(), "ServerError", Toast.LENGTH_SHORT).show();
-//                }
-//                if (error instanceof NoConnectionError) {
-//                    Toast.makeText(getApplicationContext(), "NoConnectionError", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        requestQueue.add(request);
-
-        String url = URL + "?cajaBusqueda=Bryan";
+    public void consultar() {
+        String url = URL + cajaBusqueda.getText().toString();
 
         StringRequest request=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     lista.clear();
-                    JSONObject json =new JSONObject(response);
-                    //printing the response
-                    Log.i("TAG","xddd");
-                    Log.i("TAG",json.toString());
 
+                    JSONObject json =new JSONObject(response);
                     JSONArray array = new JSONArray(json.getString("datos"));
                     for (int i=0;i<array.length();i++){
                         JSONObject json_data = array.getJSONObject(i);
@@ -164,6 +122,7 @@ public class ActivityConsultas extends AppCompatActivity {
                         Fotografo fotografo = new Fotografo(id, nombre, apellido, fechaNacimiento, telefono, correo);
                         lista.add(fotografo);
                     }
+
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -175,16 +134,7 @@ public class ActivityConsultas extends AppCompatActivity {
                 Log.i("TAG",error.getMessage());
             }
         });
-//        {
-//                @Override
-//                public HashMap<String, String> getParams() {
-//                    HashMap<String, String> params = new HashMap<String, String>();
-//                    params.put("cajaBusqueda", "Bryan");
-//                    return params;
-//            }
-//        };
-        Volley.newRequestQueue(getApplicationContext()).add(request);
-
+        requestQueue.add(request);
     }
 
 }

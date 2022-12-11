@@ -27,7 +27,7 @@ public class ActivityBajas extends AppCompatActivity {
 
     RequestQueue requestQueue;  //cola de peticiones
 
-    private static final String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_android.php";
+    private static final String URL = "http://proyecto4.proyectosprogramacionweb.com/api_rest/api_rest_MySQL/api_bajas.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,7 @@ public class ActivityBajas extends AppCompatActivity {
     }
 
     public void eliminarPaciente(View view) {
+
         if (et_id.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "El campo ID no puede estar vacío", Toast.LENGTH_SHORT).show();
         } else {
@@ -66,9 +67,10 @@ public class ActivityBajas extends AppCompatActivity {
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 if (jsonObject.getBoolean("exito")) {
-                                    Toast.makeText(ActivityBajas.this, jsonObject.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                                    et_id.setText("");
+                                    Toast.makeText(getApplicationContext(), jsonObject.getString("msj"), Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(ActivityBajas.this, jsonObject.getString("mensaje"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), jsonObject.getString("msj"), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -79,13 +81,13 @@ public class ActivityBajas extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             if (error instanceof NoConnectionError) {
-                                Toast.makeText(ActivityBajas.this, "No hay conexión a Internet", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "No hay conexión a Internet", Toast.LENGTH_SHORT).show();
                             } else if (error instanceof NetworkError) {
-                                Toast.makeText(ActivityBajas.this, "Error de red", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error de red", Toast.LENGTH_SHORT).show();
                             } else if (error instanceof ServerError) {
-                                Toast.makeText(ActivityBajas.this, "Error en el servidor", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error en el servidor", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(ActivityBajas.this, "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error al conectar con el servidor", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
