@@ -1,11 +1,13 @@
 package com.example.estudiofotografico_android;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -69,7 +71,7 @@ public class ActivityAltas extends AppCompatActivity {
         et_telefono.setText("");
         et_email.setText("");
     }
-
+    
     public void agregarFotografo(View view){
         // caso de exito {"exito":true,"mensaje":"insercion correcta"}
 
@@ -88,6 +90,7 @@ public class ActivityAltas extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
@@ -142,6 +145,17 @@ public class ActivityAltas extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    public void mostrarCalendario(View v){
+
+        DatePickerDialog d = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                et_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+            }
+        },2022,11,12);
+        d.show();
     }
 
 }
