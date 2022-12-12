@@ -22,15 +22,15 @@
 
             <ImageView
                 android:id="@+id/iconImageView"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="82dp"
+                android:layout_height="85dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                app:srcCompat="@drawable/ic_ciudad" />
+                app:srcCompat="@drawable/ic_fotografo" />
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
@@ -42,6 +42,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="4dp"
                 android:layout_toRightOf="@id/iconImageView">
+
                 <TextView
                     android:id="@+id/fotografoId"
                     android:layout_width="match_parent"
@@ -50,7 +51,7 @@
                     android:text="id"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
                 <TextView
                     android:id="@+id/fotografoNombre"
                     android:layout_width="match_parent"
