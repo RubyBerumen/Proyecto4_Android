@@ -27,6 +27,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
         android:ems="10"
+        android:drawableStart="@drawable/ic_cam"
+        android:drawablePadding="10dp"
         android:hint="@string/caja_nombre"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView_consultas"
