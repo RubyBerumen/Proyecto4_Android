@@ -152,7 +152,7 @@ public class ActivityAltas extends AppCompatActivity {
         DatePickerDialog d = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                et_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                et_fecha.setText(year+"-"+(month+1)+"-"+dayOfMonth);
             }
         },2022,11,12);
         d.show();
