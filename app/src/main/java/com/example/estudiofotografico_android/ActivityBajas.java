@@ -2,9 +2,11 @@ package com.example.estudiofotografico_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -54,7 +56,7 @@ public class ActivityBajas extends AppCompatActivity {
         et_email.setText("");
     }
 
-    public void eliminarPaciente(View view) {
+    public void eliminarFotografo(View view) {
 
         if (et_id.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "El campo ID no puede estar vacío", Toast.LENGTH_SHORT).show();
@@ -94,6 +96,17 @@ public class ActivityBajas extends AppCompatActivity {
             );
             requestQueue.add(request);
         }
+    }
+
+    public void mostrarCalendario(View v){
+
+        DatePickerDialog d = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                et_fecha.setText(year+"-"+(month+1)+"-"+dayOfMonth);
+            }
+        },2022,11,12);
+        d.show();
     }
 
 
