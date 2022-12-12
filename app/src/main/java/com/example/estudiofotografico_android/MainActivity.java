@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         if(et_passwd.getText().toString().isEmpty()){
             et_passwd.setError("El campo no puede estar vacío");
             camposCorrectos = false;
+        }else if(et_passwd.getText().length()<8){
+            et_passwd.setError("Debes ingresar minimo 8 caracteres");
+            camposCorrectos = false;
         }
         return camposCorrectos;
     }

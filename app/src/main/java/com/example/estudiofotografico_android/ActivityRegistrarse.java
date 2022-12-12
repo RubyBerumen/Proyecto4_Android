@@ -55,9 +55,15 @@ public class ActivityRegistrarse extends AppCompatActivity {
         if(et_passwd.getText().toString().isEmpty()){
             et_passwd.setError("El campo no puede estar vacío");
             camposCorrectos = false;
+        }else if(et_passwd.getText().length()<8){
+            et_passwd.setError("Debes ingresar minimo 8 caracteres");
+            camposCorrectos = false;
         }
         if(et_passwd2.getText().toString().isEmpty()){
             et_passwd2.setError("El campo no puede estar vacío");
+            camposCorrectos = false;
+        }else if(et_passwd2.getText().length()<8){
+            et_passwd2.setError("Debes ingresar minimo 8 caracteres");
             camposCorrectos = false;
         }
         if(et_nombre.getText().toString().isEmpty()){

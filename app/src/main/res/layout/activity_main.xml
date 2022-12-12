@@ -34,6 +34,7 @@
         android:background="@drawable/custom_input"
         android:hint="@string/cajaContraseña"
         android:inputType="textPassword"
+        
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
